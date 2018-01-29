@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>project_name</key>
+	<string>DaBao_Demo</string>
+	<key>project_path</key>
+	<string>/Users/mecrt/Desktop/DaBao_Demo</string>
+	<key>project_version</key>
+	<string>1.0.0</string>
+	<key>scheme_name</key>
+	<string>DaBao_Demo</string>
+	<key>ipa_name</key>
+	<string>DaBao_Demo</string>
+	<key>ipa_path</key>
+	<string>/Users/mecrt/Desktop/ipa</string>
+	<key>plist_path</key>
+	<string>/Users/mecrt/Desktop/DaBao_Demo/exportAdHoc.plist</string>
+	<key>configuration</key>
+	<string>AdHoc</string>
+	<key>upload_address</key>
+	<string>PGY</string>
+	<key>user_key</key>
+	<string>f478d909a79ed5dd1ad7cd3de143462a</string>
+	<key>api_key</key>
+	<string>cea18688ac6f648d28023402cbb771f9</string>
+	<key>password</key>
+	<string>666666</string>
+</dict>
+</plist>

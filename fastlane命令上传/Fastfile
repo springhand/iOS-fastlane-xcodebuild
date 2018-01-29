@@ -1,0 +1,79 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+# 需要的 fastlane 的最小版本，在每次执行之后会检查是否有最新版本，如果有会在最后末尾追加新版本提醒
+fastlane_version "2.75.1"
+
+# 默认使用平台是 iOS，也就是说文件可以多个平台。
+default_platform :ios
+
+platform :ios do
+  desc "打包一个Beta版本 发布到蒲公英上，密码：666666"
+   :debug do
+
+    #sigh(adhoc: true)#申请adhoc证书
+    #increment_build_number_in_plist(target: [target_name])
+    #increment_version_number_in_plist(
+    #target: [DaBao],
+    #version_number: '4.0'
+    #)
+
+    zputs "开始打包 类型：ipa"
+
+#cert
+#sigh(force: true)
+    
+    #gym用于编译ipa
+    gym(
+        scheme: "DaBao_Demo",
+
+# 指定打包所使用的输出方式，目前支持app-store，package，ad-hoc，enterprise，development
+        export_method: "app-store",
+
+        # 输出的ipa名称
+        output_name: "FastlaneDemo.ipa",
+
+        # ipa存放路径
+        output_directory: "/Users/mecrt/Desktop/ipa",
+
+        # 是否清空以前的编辑信息 true：是
+        clean: true,
+
+        # 指定打包方式，Release 或者 Debug
+        configuration: "Release",
+
+        # 导出选项
+        export_options: {
+            method: "app-store",
+            provisioningProfiles: {
+#"com.FastlaneDemo.huzc" => "com.FastlaneDemo.huzc AdHoc"
+                "com.FastlaneDemo.huzc" => "com.FastlaneDemo.huzc AppStore"
+            }
+        }
+    )
+
+    # 上传fir
+    #firim(firim_api_token: [firim_api_token]) #上传ipa到fir.im服务器
+
+    # 上传蒲公英
+    pgyer(api_key: "cea18688ac6f648d28023402cbb771f9", user_key: "f478d909a79ed5dd1ad7cd3de143462a", password: "666666", install_type: "2")
+  end
+
+    desc "企业版"
+    lane :enterprise do
+        increment_version_number(
+            version_number: options[:version]
+        )
+
+        increment_build_number(
+            build_number: options[:build]
+        )
+    end 
+end
